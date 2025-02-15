@@ -9,7 +9,9 @@ Feature: Sample Feature
     And  I enter "orderid" in "Orderid"
     And I select "Java" from "Language" dropdown
 
+  @sanity
   Scenario: Test another simple functionality
     Given I have a sample setup
     When I perform an action
     Then I verify the result
+    And  I logout
