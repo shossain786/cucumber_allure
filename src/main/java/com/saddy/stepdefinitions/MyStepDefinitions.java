@@ -17,4 +17,14 @@ public class MyStepDefinitions {
     public void i_verify_the_result() {
         System.out.println("Result verified!");
     }
+
+    @When("I click on {string}")
+    public void iClickOn(String arg0) {
+        System.out.println("I click on " + arg0);
+    }
+
+    @Given("This is just a background")
+    public void thisIsJustABackground() {
+        System.out.println("This is just a background");
+    }
 }
