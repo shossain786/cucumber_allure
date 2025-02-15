@@ -27,4 +27,9 @@ public class MyStepDefinitions {
     public void thisIsJustABackground() {
         System.out.println("This is just a background");
     }
+
+    @And("I select {string} from {string} dropdown")
+    public void iSelectFromDropdown(String data, String dropdown) {
+        System.out.println("I select " + data + " from " + dropdown + " dropdown");
+    }
 }

@@ -125,4 +125,18 @@ public class ShippingStepDefinitions {
         System.out.println("[DEBUG] Entering details for Entity: " + entity);
         System.out.println("[DEBUG] Name: " + name + ", Address: " + address + ", Partner: " + partner);
     }
+
+    @Given("I am on the Shipping Form page")
+    public void iAmOnTheShippingFormPage() {
+        System.out.println("I am on the Shipping Form page");
+    }
+
+    @Given("^I fill the details for \"([^\"]*)\" with name \"([^\"]*)\", address \"([^\"]*)\", and partner \"([^\"]*)\"$")
+    public void iFillDetails(String entity, String name, String address, String partner) {
+        System.out.println("Filling details for: " + entity);
+        enterText(name, entity + " Name");
+        enterText(address, entity + " Address");
+        clickButton("My Partners");
+        selectDropdown(partner, entity + " Partner");
+    }
 }

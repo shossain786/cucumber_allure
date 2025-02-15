@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 @Test
 @CucumberOptions(
-        features = "src/test/resources/features", // Path to feature files
-        glue = "com.saddy.stepdefinitions",       // Path to step definitions
+//        features = "src/test/resources/features", // Path to feature files
+        glue = "com.saddy",       // Path to step definitions
         plugin = {
                 "pretty", // For readable console output
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm", // Allure plugin
