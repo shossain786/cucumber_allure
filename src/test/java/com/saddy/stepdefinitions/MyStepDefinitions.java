@@ -1,5 +1,6 @@
 package com.saddy.stepdefinitions;
 
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.*;
 
 public class MyStepDefinitions {
@@ -31,5 +32,10 @@ public class MyStepDefinitions {
     @And("I select {string} from {string} dropdown")
     public void iSelectFromDropdown(String data, String dropdown) {
         System.out.println("I select " + data + " from " + dropdown + " dropdown");
+    }
+
+    @And("I logout")
+    public void iLogout() {
+        System.out.println("I logout");
     }
 }

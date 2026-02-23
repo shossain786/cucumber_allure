@@ -6,16 +6,16 @@ import org.testng.annotations.Test;
 
 @Test
 @CucumberOptions(
-        features = "src/test/resources/features", // Path to feature files
-        glue = "com.saddy",       // Path to step definitions
+        features = "src/test/resources/features",
+        glue = "com.saddy",
         plugin = {
-                "pretty", // For readable console output
-                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm", // Allure plugin
-                "json:target/cucumber-report.json" // Optional: Generates JSON report
+                "pretty",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+                "json:target/cucumber-report.json"
         },
-        tags = "@sanity",
-        dryRun = false, //verify that all step definitions are properly implemented without actually executing the test steps.
-        monochrome = false // Makes the console output more readable
+        tags = "",
+        dryRun = false,
+        monochrome = false
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
         static {
