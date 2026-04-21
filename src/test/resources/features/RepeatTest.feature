@@ -9,7 +9,7 @@ Feature: Adding multiple shipping details
       | Consignee  |
       | Forwarder  |
 
-  Scenario: Click and Select Partner
+  Scenario: Click and Select Partner "test"
     Given I perform click on "My Partners"
     And I select "Shipper Partner"
 

@@ -1,15 +1,21 @@
 package com.saddy.stepdefinitions;
 
+import java.util.List;
+import java.util.Map;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
-import java.util.List;
-import java.util.Map;
-
 public class ShippingStepDefinitions {
 
+    /**
+     * Enters details for the given entity type (shipper, consignee, or forwarder).<br>
+     * <ul>
+     *   <li><b>entity</b> - the entity type whose details should be entered</li>
+     * </ul>
+     */
     @Given("I enter {string} details")
     public void iEnterEntityDetails(String entity) {
         System.out.println("Entering details for: " + entity);
@@ -30,12 +36,24 @@ public class ShippingStepDefinitions {
         }
     }
 
+    /**
+     * Clicks on the specified button or element.<br>
+     * <ul>
+     *   <li><b>button</b> - the name or label of the button to click</li>
+     * </ul>
+     */
     @Given("I perform click on {string}")
     public void iClickOn(String button) {
         System.out.println("Clicking on: " + button);
         // Selenium logic to click the button
     }
 
+    /**
+     * Selects the specified option from a list or radio group.<br>
+     * <ul>
+     *   <li><b>option</b> - the option to select</li>
+     * </ul>
+     */
     @Given("I select {string}")
     public void iSelect(String option) {
         System.out.println("Selecting: " + option);
@@ -53,6 +71,12 @@ public class ShippingStepDefinitions {
         // driver.findElement(By.id("addressField")).sendKeys(address);
     }
 
+    /**
+     * Performs multiple actions defined in a DataTable with columns: Entity, Action, Field Name, Value.<br>
+     * <ul>
+     *   <li><b>table</b> - the DataTable containing the actions to perform</li>
+     * </ul>
+     */
     @Given("I perform the following actions:")
     public void iPerformTheFollowingActions(DataTable table) {
         List<Map<String, String>> actions = table.asMaps(String.class, String.class);
@@ -96,23 +120,43 @@ public class ShippingStepDefinitions {
         // Implement Selenium logic here
     }
 
+    /**
+     * Fills in additional form fields not covered by other steps.
+     */
     @Given("I fill other form fields")
     public void iFillOtherFormFields() {
         System.out.println("Filling other form fields...");
         // Additional logic
     }
 
+    /**
+     * Submits the current form.
+     */
     @Given("I submit the form")
     public void iSubmitTheForm() {
         System.out.println("Submitting the form...");
         // Additional logic
     }
 
+    /**
+     * Selects a value from the specified dropdown.<br>
+     * <ul>
+     *   <li><b>value</b> - the value to select</li>
+     *   <li><b>dropdownName</b> - the name of the dropdown</li>
+     * </ul>
+     */
     @And("I select {string} from {string}")
     public void iSelectFromDropdown(String value, String dropdownName) {
         System.out.println("Selecting '" + value + "' from dropdown '" + dropdownName + "'");
         // Implement Selenium code here to select from a dropdown
     }
+    /**
+     * Enters a value into the specified input field.<br>
+     * <ul>
+     *   <li><b>value</b> - the text to enter</li>
+     *   <li><b>fieldName</b> - the name of the field</li>
+     * </ul>
+     */
     @When("I enter {string} in {string}")
     public void enterField(String value, String fieldName) {
         System.out.println("Entering " + value + " onto " + fieldName);
@@ -120,17 +164,38 @@ public class ShippingStepDefinitions {
     }
 
     // Step to handle parameterized details entry (prints parameters)
+    /**
+     * Enters details for an entity with the given name, address, and partner.<br>
+     * <ul>
+     *   <li><b>entity</b> - the entity type (e.g., Shipper, Consignee)</li>
+     *   <li><b>name</b> - the entity's name</li>
+     *   <li><b>address</b> - the entity's address</li>
+     *   <li><b>partner</b> - the associated partner name</li>
+     * </ul>
+     */
     @When("I enter details for {string} with name {string} address {string} and partner {string}")
     public void enterDetailsForEntity(String entity, String name, String address, String partner) {
         System.out.println("[DEBUG] Entering details for Entity: " + entity);
         System.out.println("[DEBUG] Name: " + name + ", Address: " + address + ", Partner: " + partner);
     }
 
+    /**
+     * Navigates to the Shipping Form page.
+     */
     @Given("I am on the Shipping Form page")
     public void iAmOnTheShippingFormPage() {
         System.out.println("I am on the Shipping Form page");
     }
 
+    /**
+     * Fills form details for an entity using regex-matched parameters.<br>
+     * <ul>
+     *   <li><b>entity</b> - the entity type</li>
+     *   <li><b>name</b> - the entity's name</li>
+     *   <li><b>address</b> - the entity's address</li>
+     *   <li><b>partner</b> - the associated partner name</li>
+     * </ul>
+     */
     @Given("^I fill the details for \"([^\"]*)\" with name \"([^\"]*)\", address \"([^\"]*)\", and partner \"([^\"]*)\"$")
     public void iFillDetails(String entity, String name, String address, String partner) {
         System.out.println("Filling details for: " + entity);
