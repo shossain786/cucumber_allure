@@ -7,7 +7,6 @@ Feature: Filling shipping details with reusable steps
     Given I fill the details for "Shipper" with name "ABC Logistics", address "123 Street, NY", and partner "FedEx"
     Given I fill the details for "Consignee" with name "XYZ Corp", address "789 Road, LA", and partner "DHL"
     Given I fill the details for "Forwarder" with name "LMN Shipping", address "456 Blvd, SF", and partner "UPS"
-
     And I fill other form fields
     And I submit the form
 
@@ -17,3 +16,4 @@ Feature: Filling shipping details with reusable steps
     Given I enter "<Address>" in "<Entity> Address"
     Given I click on "My Partners"
     Given I select "<Partner>" from "<Entity> Partner>"
+    And I click on "Submit"

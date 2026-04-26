@@ -13,6 +13,7 @@ Feature: Adding multiple shipping details
     Given I perform click on "My Partners"
     And I select "Shipper Partner"
 
+  @sanity
   Scenario: Fill out shipping details for different entities
     Given I perform the following actions:
       | Entity     | Action            | Field Name         | Value             |
