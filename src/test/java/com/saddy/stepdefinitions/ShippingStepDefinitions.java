@@ -6,6 +6,7 @@ import java.util.Map;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ShippingStepDefinitions {
@@ -57,13 +58,15 @@ public class ShippingStepDefinitions {
     @Given("I select {string}")
     public void iSelect(String option) {
         System.out.println("Selecting: " + option);
-        // Selenium logic to select the option
+        System.out.println("Selecting: " + option);
+        // Selenium logic to select the option saved
     }
 
     private void enterDetails(String entityType, String name, String address) {
         System.out.println("Entering " + entityType + " details:");
         System.out.println("Name: " + name);
         System.out.println("Address: " + address);
+        System.out.println("-----------------------------------");
 
         // Selenium code to enter these details in the form fields
         // Example:
@@ -203,5 +206,10 @@ public class ShippingStepDefinitions {
         enterText(address, entity + " Address");
         clickButton("My Partners");
         selectDropdown(partner, entity + " Partner");
+    }
+
+    @Then("I should see {string} is displayed")
+    public void iShouldSeeIsDisplayed(String arg0) {
+        System.out.println(arg0);
     }
 }

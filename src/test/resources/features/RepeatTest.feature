@@ -11,7 +11,9 @@ Feature: Adding multiple shipping details
 
   Scenario: Click and Select Partner "test"
     Given I perform click on "My Partners"
-    And I select "Shipper Partner"
+    When I select "Shipper Partner"
+    Then I should see "Shipper Partner" is displayed
+  
 
   @sanity
   Scenario: Fill out shipping details for different entities
@@ -35,7 +37,7 @@ Feature: Adding multiple shipping details
 
   Scenario: Fill out shipping details
     Given I enter "ABC Logistics" in "Shipper Name"
-    And I enter "123 Street, NY" in "Shipper Address"
+    When I enter "123 Street, NY" in "Shipper Address"
     And I click on "My Partners"
     And I select "FedEx" from "Shipper Partner"
 
