@@ -4,7 +4,6 @@ pipeline {
     tools {
         maven 'Maven-3'
         jdk 'JDK17'
-        allure3 'Allure 3'
     }
 
     options {
@@ -30,11 +29,13 @@ pipeline {
         always {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
 
-            // Wrapping inside script ensures tool paths are properly evaluated
             script {
-                allure allureVersion: '3',
-                       includeProperties: false,
-                       results: [[path: 'target/allure-results']]
+                // This explicitly loads the environment for the Allure 3 commandline tool locally
+                withTool(name: 'Allure 3', type: 'allure3') {
+                    allure allureVersion: '3',
+                           includeProperties: false,
+                           results: [[path: 'target/allure-results']]
+                }
             }
 
             archiveArtifacts artifacts: 'target/cucumber-report.json', allowEmptyArchive: true
