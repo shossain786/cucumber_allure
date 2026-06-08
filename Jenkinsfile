@@ -30,8 +30,8 @@ pipeline {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
 
             script {
-                // This explicitly loads the environment for the Allure 3 commandline tool locally
-                withTool(name: 'Allure 3', type: 'allure3') {
+                // Changed type from 'allure3' to 'allure' to match your global tools location
+                withTool(name: 'Allure 3', type: 'allure') {
                     allure allureVersion: '3',
                            includeProperties: false,
                            results: [[path: 'target/allure-results']]
