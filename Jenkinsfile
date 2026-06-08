@@ -4,6 +4,7 @@ pipeline {
     tools {
         maven 'Maven-3'
         jdk 'JDK17'
+        allureCommandline 'Allure 3'
     }
 
     options {
