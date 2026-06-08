@@ -30,12 +30,9 @@ pipeline {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
 
             script {
-                // Changed type from 'allure3' to 'allure' to match your global tools location
-                withTool(name: 'Allure 3', type: 'allure') {
-                    allure allureVersion: '3',
-                           includeProperties: false,
-                           results: [[path: 'target/allure-results']]
-                }
+                allure allureVersion: '3',
+                       includeProperties: false,
+                       results: [[path: 'target/allure-results']]
             }
 
             archiveArtifacts artifacts: 'target/cucumber-report.json', allowEmptyArchive: true
