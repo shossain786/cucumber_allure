@@ -30,9 +30,12 @@ pipeline {
         always {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
 
-            allure allureVersion: '3',
-                   includeProperties: false,
-                   results: [[path: 'target/allure-results']]
+            // Wrapping inside script ensures tool paths are properly evaluated
+            script {
+                allure allureVersion: '3',
+                       includeProperties: false,
+                       results: [[path: 'target/allure-results']]
+            }
 
             archiveArtifacts artifacts: 'target/cucumber-report.json', allowEmptyArchive: true
         }
