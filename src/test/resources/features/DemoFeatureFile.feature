@@ -18,3 +18,8 @@ Feature: Sample Feature
     When I perform an action
     Then I verify the result
     And  I logout
+
+  Scenario: This is a new test
+    Given I click on "Login"
+    When  I perform an action
+    Then  I have a sample setup
